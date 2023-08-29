@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_new/app/data/model/example_model.dart';
 import 'package:flutter_new/app/data/model/example_request_model.dart';
 import 'package:flutter_new/app/data/source/data_source.dart';
+import 'package:flutter_new/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -45,5 +46,9 @@ class HomeController extends GetxController {
       ),
     );
     update();
+  }
+
+  void onClickGoToList() {
+    Get.toNamed(Routes.LIST_EXAMPLE);
   }
 }

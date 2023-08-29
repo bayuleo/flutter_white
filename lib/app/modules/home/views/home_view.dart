@@ -15,31 +15,39 @@ class HomeView extends GetView<HomeController> {
       body: GetBuilder<HomeController>(
         builder: (controller) => Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Stack(
             children: [
-              const Text(
-                'HomeView is working',
-                style: TextStyle(fontSize: 20),
-              ),
-              TextField(
-                controller: controller.textEditingController,
-                decoration: InputDecoration(hintText: 'Input Value'),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'HomeView is working',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  TextField(
+                    controller: controller.textEditingController,
+                    decoration: InputDecoration(hintText: 'Input Value'),
+                  ),
+                  ElevatedButton(
+                    onPressed: controller.onClickGet,
+                    child: const Text('GET'),
+                  ),
+                  ElevatedButton(
+                    onPressed: controller.onClickPost,
+                    child: const Text('POST'),
+                  ),
+                  ElevatedButton(
+                    onPressed: controller.onClickPatch,
+                    child: const Text('PATCH'),
+                  ),
+                  Text(
+                    'Result : ${controller.result?.name ?? ''}',
+                  ),
+                ],
               ),
               ElevatedButton(
-                onPressed: controller.onClickGet,
-                child: const Text('GET'),
-              ),
-              ElevatedButton(
-                onPressed: controller.onClickPost,
-                child: const Text('POST'),
-              ),
-              ElevatedButton(
-                onPressed: controller.onClickPatch,
-                child: const Text('PATCH'),
-              ),
-              Text(
-                'Result : ${controller.result?.name ?? ''}',
+                onPressed: controller.onClickGoToList,
+                child: const Text('Go To List'),
               ),
             ],
           ),
