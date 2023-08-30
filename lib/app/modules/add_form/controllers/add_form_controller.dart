@@ -10,11 +10,6 @@ class AddFormController extends GetxController {
   String? id;
 
   @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
   void onReady() {
     var args = Get.arguments;
     if (args != null) {
@@ -22,11 +17,6 @@ class AddFormController extends GetxController {
       textEditingController.text = args;
     }
     super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
   }
 
   void onClickPost() async {

@@ -26,7 +26,7 @@ class HomeView extends GetView<HomeController> {
                   ),
                   TextField(
                     controller: controller.textEditingController,
-                    decoration: InputDecoration(hintText: 'Input Value'),
+                    decoration: const InputDecoration(hintText: 'Input Value'),
                   ),
                   ElevatedButton(
                     onPressed: controller.onClickGet,

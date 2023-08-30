@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_new/app/data/model/example_list.dart';
 import 'package:flutter_new/app/data/model/example_model.dart';
+import 'package:flutter_new/app/data/model/example_request_list.dart';
 import 'package:flutter_new/app/data/model/example_request_model.dart';
 import 'package:flutter_new/network/dio_config.dart';
 
@@ -31,8 +32,11 @@ class DataSource {
     return ExampleModel.fromJson(response.data);
   }
 
-  Future<ExampleList> getListData() async {
-    final response = await DioConfig.createDio().get('list');
+  Future<ExampleList> getListData(ExampleRequestList param) async {
+    final response = await DioConfig.createDio().get(
+      'list',
+      queryParameters: param.toJson(),
+    );
     return ExampleList.fromJson(response.data);
   }
 

@@ -9,15 +9,6 @@ class HomeController extends GetxController {
   ExampleModel? result;
   final _dataSource = DataSource();
   final textEditingController = TextEditingController();
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
   @override
   void onClose() {

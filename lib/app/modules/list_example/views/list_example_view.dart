@@ -19,34 +19,34 @@ class ListExampleView extends GetView<ListExampleController> {
               onPressed: controller.onClickAdd,
               child: const Text('Add New'),
             ),
-            SingleChildScrollView(
+            Expanded(
               child: ListView.builder(
+                controller: controller.scrollController,
                 itemCount: controller.data.length,
+                physics: const AlwaysScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   var data = controller.data[index];
                   return ListTile(
-                    title: Container(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Text('${data.nama}'),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {
-                              controller.onClickEdit(data.nama);
-                            },
-                            child: const Text('Edit'),
-                          ),
-                          SizedBox(
-                            width: 12,
-                          ),
-                          ElevatedButton(
-                            onPressed: () => controller.onDeleteData(data.nama),
-                            child: const Text('Delete'),
-                          ),
-                        ],
-                      ),
+                    title: Row(
+                      children: [
+                        Expanded(
+                          child: Text(data.nama),
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            controller.onClickEdit(data.nama);
+                          },
+                          child: const Text('Edit'),
+                        ),
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        ElevatedButton(
+                          onPressed: () => controller.onDeleteData(data.nama),
+                          child: const Text('Delete'),
+                        ),
+                      ],
                     ),
                   );
                 },
